@@ -1,0 +1,56 @@
+import React from "react";
+import Accordion from "../Accordion";
+
+const OurInfo = () => {
+  return (
+    <div className="container mx-auto px-4 flex items-start justify-center flex-col lg:flex-row py-5 md:py-10 lg:py-20">
+      {/* left side  */}
+      <div>
+        <div className="flex lg:w-[532px] pr-6 flex-col items-start gap-4">
+          <h2 className="title">What We do?</h2>
+          <p className="content ">
+            At Cdda, we build mission-critical software systems using the power
+            of Digital, Data, Cloud & AI – that help organizations adapt to the
+            changing IT landscape and surpass the competition.
+          </p>
+        </div>
+      </div>
+      {/* right side */}
+      <div className="w-full">
+        {/* right side */}
+
+        {/* accordion  */}
+        <Accordion
+          data={[
+            {
+              id: "accordion-1",
+              title: "Digital Product Engineering",
+              content:
+                "With a decade of Product Engineering experience, we help organizations across the product lifecycle bringing expertise on full-stack, cloud platforms, pre-configured tools, and scalable architectures.",
+            },
+            {
+              id: "accordion-2",
+              title: "Data",
+              content:
+                "Absolutely, our expertise extends to providing bespoke software development services tailored to your specific industry requirements. With a focus on innovation, we craft solutions that optimize your processes, enhance efficiency, and align with your unique business objectives. Our dedicated team is committed to delivering cutting-edge technology that ensures a seamless integration of customized software for the sustained success of your business.",
+            },
+            {
+              id: "accordion-3",
+              title: "Cloud",
+              content:
+                "Absolutely, our expertise extends to providing bespoke software development services tailored to your specific industry requirements. With a focus on innovation, we craft solutions that optimize your processes, enhance efficiency, and align with your unique business objectives. Our dedicated team is committed to delivering cutting-edge technology that ensures a seamless integration of customized software for the sustained success of your business.",
+            },
+            {
+              id: "accordion-4",
+              title: "Machine Learning",
+              content:
+                "Absolutely, our expertise extends to providing bespoke software development services tailored to your specific industry requirements. With a focus on innovation, we craft solutions that optimize your processes, enhance efficiency, and align with your unique business objectives. Our dedicated team is committed to delivering cutting-edge technology that ensures a seamless integration of customized software for the sustained success of your business.",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default OurInfo;
