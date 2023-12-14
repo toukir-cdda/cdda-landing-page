@@ -6,9 +6,9 @@ const OurProduct = () => {
       {/* left side  */}
       <div className="w-full lg:w-2/6">
         <div>
-          <div className="flex justify-center items-center text-center flex-col gap-2">
-            <h3 className="uppertitle">Meet Our Wings</h3>
-            <h2 className="title">
+          <div className="flex justify-center items-center md:lg:items-start text-center flex-col gap-2">
+            <h3 className="uppertitle text-left">Meet Our Wings</h3>
+            <h2 className="title md:text-left">
               We Are Never Limited to One Single Solution
             </h2>
           </div>

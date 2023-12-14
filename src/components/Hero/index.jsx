@@ -1,7 +1,35 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Badge from "../Badge";
+
+const getBadgePosition = (angle, radius) => {
+  const centerX = 115; // Adjust as needed
+  const centerY = 200; // Adjust as needed
+
+  const x = centerX + radius * Math.cos(angle);
+  const y = centerY + radius * Math.sin(angle);
+
+  return { top: `${y}px`, left: `${x}px` };
+};
 
 const Hero = () => {
+  const [angle1, setAngle1] = useState(0);
+  const [angle2, setAngle2] = useState(120);
+  const [angle3, setAngle3] = useState(240);
+
+  // useEffect(() => {
+  //   const updatePositions = () => {
+  //     setAngle1((angle) => angle + 30); // Increase the angle for badge 1
+  //     setAngle2((angle) => angle + 30); // Increase the angle for badge 2
+  //     setAngle3((angle) => angle + 30); // Increase the angle for badge 3
+  //   };
+
+  //   const intervalId = setInterval(updatePositions, 5000);
+
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, []);
   return (
     <div
       className="bg-[url('/assets/BG.svg')] bg-cover bg-center bg-no-repeat mt-12 "
@@ -43,11 +71,18 @@ const Hero = () => {
               Our new CMS Software
             </span>
           </div>
-          <p className="text-primary-text-black text-left text-[30px] md:text-[60px] lg:text-[70px] font-semibold leading-[36px] md:leading-[72px] lg:leading-[87px] ">
+          <p className="text-primary-text-black text-left text-[30px] md:text-[60px] lg:text-[70px] font-semibold leading-[36px] md:leading-[72px] lg:leading-[87px]  relative">
             Resilient technology solutions{" "}
             <span className="text-[#2AA7DF]">
               for growth-focused businesses
             </span>
+            <Image
+              className="w-64 -bottom-3 md:-bottom-1 left-11 md:left-36 lg:left-40 xl:left-40   absolute md:w-[350px] lg:w-[170px] xl:w-72 "
+              src="/assets/line.svg"
+              alt=""
+              width={500}
+              height={500}
+            />
           </p>
           <div className="bg-light-blue flex items-center gap-2 px-3 py-4 self-stretch  border-l-[var(--primary-blue)]  border-l-4 ">
             <p className="text-xs md:text-base lg:text-xl font-normal leading-4 md:leading-5 lg:leading-7 text-[#666]">
@@ -94,8 +129,11 @@ const Hero = () => {
               width={443}
               height={540}
             />
-            {/* badge 1 */}
-            <div className="absolute bg-primary-light -left-16 md:-left-36 top-60 flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md">
+            {/* badge 1  */}
+            <div
+              className="absolute bg-primary-light  flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md -left-16 md:-left-36 top-60"
+              // style={getBadgePosition(angle1 * (Math.PI / 180), 300)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -141,8 +179,11 @@ const Hero = () => {
               </svg>
               <span>commerce</span>
             </div>
-            {/* badge 2 */}
-            <div className="absolute bg-primary-light right-28 -top-10 flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md">
+            {/* badge 2  */}
+            <div
+              className="absolute bg-primary-light  flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md right-28 -top-10"
+              // style={getBadgePosition(angle2 * (Math.PI / 180), 300)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -197,8 +238,11 @@ const Hero = () => {
               </svg>
               <span>SaaS</span>
             </div>
-            {/* badge 3 */}
-            <div className="absolute bg-primary-light -right-16 top-[296px] flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md">
+            {/* badge 3  */}
+            <div
+              className="absolute bg-primary-light  flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md -right-16 top-[296px]"
+              // style={getBadgePosition(angle3 * (Math.PI / 180), 300)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

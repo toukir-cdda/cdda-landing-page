@@ -44,6 +44,30 @@ const Teams = () => {
       instgram: "",
       twitter: "",
     },
+    {
+      name: "MIZANUR RAHMAN",
+      position: "SENIOUR SOFTWARE ENGINEER",
+      img: "/assets/person.png",
+      facebook: "",
+      instgram: "",
+      twitter: "",
+    },
+    {
+      name: "YEASIR ARAFAT",
+      position: "SENIOUR DEVELOPER",
+      img: "/assets/person.png",
+      facebook: "",
+      instgram: "",
+      twitter: "",
+    },
+    {
+      name: "YEASIR ARAFAT",
+      position: "SENIOUR DEVELOPER",
+      img: "/assets/person.png",
+      facebook: "",
+      instgram: "",
+      twitter: "",
+    },
   ];
   return (
     <div className="container mx-auto px-4">
@@ -79,36 +103,6 @@ const Teams = () => {
         {data?.map((item, index) => (
           <Card item={item} key={index} />
         ))}
-
-        <div className="absolute bottom-0 w-full h-20 flex justify-center items-center bg-gradient-to-b from-transparent via-blue-0 to-blue-50 rounded-b-md">
-          <button className="primary-btn">
-            <span>See all Member</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M9.62012 3.95337L13.6668 8.00004L9.62012 12.0467"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M2.33301 8H13.553"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
       </div>
     </div>
   );

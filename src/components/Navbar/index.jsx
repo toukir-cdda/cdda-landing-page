@@ -1,25 +1,57 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-
+import Link from "next/link";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 export default function Navbar() {
+  const pages = usePathname();
+  const param = useSearchParams().get("section");
+  const router = useRouter();
+
+  const [hash, setHash] = useState("");
+  useEffect(() => {
+    if (param == "#our-info") {
+      router.replace(`/?section=#our-info`);
+    }
+
+    setHash(window.location.hash);
+  }, [param]);
+
   return (
     <div className="bg-primary-light ">
       <div className="flex justify-between items-center border border-[#E6E6E6] shadow-md px-7 py-4 rounded-[8px]">
         <div>
-          <Image
-            className="h-12 w-24"
-            src="/assets/Logo.svg"
-            width={300}
-            height={100}
-            alt=""
-          />
+          <Link href="/">
+            <Image
+              className="h-12 w-24"
+              src="/assets/Logo.svg"
+              width={300}
+              height={100}
+              alt=""
+            />
+          </Link>
         </div>
         <div className=" hidden lg:block">
-          <ul className="flex items-center lg:text-sm  font-medium gap-4">
-            <li className="group flex item-center gap-1.5 relative submenu">
-              <span>What We Do</span>
-              <span className="flex items-center   group-hover:rotate-180">
+          <ul className="flex items-center gap-1 lg:text-sm  font-medium  ">
+            <Link
+              // className={`${param == "#our-info" ? "bg-[#F2F2F2]  " : ""} `}
+              // href="/#our-info"
+              href={{
+                pathname: "/",
+                query: {
+                  section: "#our-info",
+                },
+              }}
+              scroll={false}
+            >
+              <li
+                className={`${
+                  hash == "#our-info" ? "bg-[#F2F2F2] " : ""
+                } group relative flex item-center gap-1.5 px-2 py-2 hover:bg-[#F2F2F2] cursor-pointer rounded-md submenu`}
+              >
+                <span>What We Do</span>
+
+                {/* <span className="flex items-center   group-hover:rotate-180">
                 <DownArrow />
               </span>
               <div className="group-hover:block hidden shadow-md bg-white absolute top-5 rounded-[8px] w-[130px] px-2 py-2 transition-all duration-1000 ease-in-out submenu-item">
@@ -29,11 +61,12 @@ export default function Navbar() {
                   <li>Item-1</li>
                   <li>Item-1</li>
                 </ul>
-              </div>
-            </li>
-            <li className="group relative flex item-center gap-1.5 submenu">
+              </div> */}
+              </li>
+            </Link>
+            <li className="group relative flex item-center gap-1.5 px-2 py-2 hover:bg-[#F2F2F2] cursor-pointer rounded-md  submenu">
               <span>Engagement Models</span>
-              <span className="flex items-center">
+              {/* <span className="flex items-center">
                 <DownArrow />
               </span>
               <div className="group-hover:block hidden shadow-md bg-white absolute top-5 rounded-[8px] w-[130px] px-2 py-2 transition-all duration-1000 ease-in-out submenu-item">
@@ -43,11 +76,11 @@ export default function Navbar() {
                   <li>Item-1</li>
                   <li>Item-1</li>
                 </ul>
-              </div>
+              </div> */}
             </li>
-            <li className="group relative flex item-center gap-1.5 submenu">
+            <li className="group relative flex item-center gap-1.5 px-2 py-2 hover:bg-[#F2F2F2] cursor-pointer rounded-md  submenu">
               <span>Industries</span>
-              <span className="flex items-center">
+              {/* <span className="flex items-center">
                 <DownArrow />
               </span>
               <div className="group-hover:block hidden shadow-md bg-white absolute top-5 rounded-[8px] w-[130px] px-2 py-2 transition-all duration-1000 ease-in-out submenu-item">
@@ -57,25 +90,38 @@ export default function Navbar() {
                   <li>Item-1</li>
                   <li>Item-1</li>
                 </ul>
-              </div>
+              </div> */}
             </li>
-            <li className="group relative flex item-center gap-1.5 submenu">
-              <span>About US</span>
-              <span className="flex items-center">
+            <Link href="/about-us">
+              <li
+                className={`${
+                  pages == "/about-us" ? "bg-[#F2F2F2] " : ""
+                } group relative flex item-center gap-1.5 px-2 py-2 hover:bg-[#F2F2F2] cursor-pointer rounded-md submenu`}
+              >
+                <span>About US</span>
+
+                {/* <span className="flex items-center">
                 <DownArrow />
-              </span>
-              <div className="group-hover:block hidden shadow-md bg-white absolute top-5 rounded-[8px] w-[130px] px-2 py-2 transition-all duration-1000 ease-in-out submenu-item">
+              </span> */}
+                {/* <div className="group-hover:block hidden shadow-md bg-white absolute top-5 rounded-[8px] w-[130px] px-2 py-2 transition-all duration-1000 ease-in-out submenu-item">
                 <ul className="space-y-1">
                   <li>Item-1</li>
                   <li>Item-1</li>
                   <li>Item-1</li>
                   <li>Item-1</li>
                 </ul>
-              </div>
-            </li>
-            <li className="flex item-center gap-1.5">
-              <span>Contact Us</span>
-            </li>
+              </div> */}
+              </li>
+            </Link>
+            <Link href="/contact-us">
+              <li
+                className={`${
+                  pages == "/contact-us" ? "bg-[#F2F2F2] " : ""
+                } group relative flex item-center gap-1.5 px-2 py-2 hover:bg-[#F2F2F2] cursor-pointer rounded-md submenu`}
+              >
+                <span>Contact Us</span>
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="flex justify-between items-center gap-4 text-sm font-medium">
