@@ -1,11 +1,7 @@
 "use client";
-import AboutCard from "@/components/Card/AboutCard";
-import ContactForm from "@/components/ContactForm";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import OurInfo from "@/components/OurInfo";
-import Teams from "@/components/Teams";
+import ContactForm from "../../components/ContactForm";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 export default function ContactUs() {
   return (
     <div className="">

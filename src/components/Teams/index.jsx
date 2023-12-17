@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "../Carousel";
 import Card from "../Card";
+import Image from "next/image";
 
 const Teams = () => {
   const data = [
@@ -73,14 +74,22 @@ const Teams = () => {
     <div className="container mx-auto px-4">
       <div className="flex flex-col justify-center items-center py-8 lg:py-14 self-stretch">
         <h3 className="uppertitle">Meet Our Teams</h3>
-        <h1 className="title lg:px-40 text-center">
+        <h1 className="title lg:px-40 text-center relative">
           Meet our team of Creators, Designers, and world-class Problem Solvers
+          {/* line  */}
+          <Image
+            className="w-64 text__underline absolute md:w-[350px] lg:w-[170px] xl:w-72 "
+            src="/assets/line.svg"
+            alt=""
+            width={500}
+            height={500}
+          />
         </h1>
       </div>
 
       <div className="py-2 lg:py-5">
         <h3 className="subtitle">Meet Our Leader</h3>
-        <p className="content">
+        <p className="content ">
           Our team is Dedicated to helping world-class professional Software
           build and improve their business with our industry-leading software.
         </p>

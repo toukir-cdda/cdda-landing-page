@@ -1,10 +1,11 @@
 "use client";
-import AboutCard from "@/components/Card/AboutCard";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import OurInfo from "@/components/OurInfo";
-import Teams from "@/components/Teams";
+// import AboutCard from "@/components/Card/AboutCard";
+import FAQ from "../../components/FAQ";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import Teams from "../../components/Teams";
+import { FaArrowRight } from "react-icons/fa";
+import AboutCard from "../../components/Card/AboutCard";
 export default function AboutUs() {
   const aboutCardData = [
     {
@@ -103,30 +104,7 @@ export default function AboutUs() {
         <div className="absolute bottom-0 w-full h-28 flex justify-center items-center bg-gradient-to-b from-transparent via-blue-0 to-white rounded-b-md">
           <button className="primary-btn">
             <span>See all Member</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M9.62012 3.95337L13.6668 8.00004L9.62012 12.0467"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M2.33301 8H13.553"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <FaArrowRight />
           </button>
         </div>
       </section>

@@ -4,55 +4,6 @@ import React from "react";
 import Slider from "react-slick";
 import Card from "../Card";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-
-        right: "-5%",
-        top: "86%",
-        background: "#E6E6E6",
-        width: "30px",
-        height: "30px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: "50%",
-      }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <button
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        left: "107%",
-        top: "86%",
-        background: "#E6E6E6",
-        width: "30px",
-        height: "30px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: "50%",
-        boxShadow:
-          "0px 2px 4px -1px rgba(37, 37, 37, 0.06), 0px 4px 6px -1px rgba(37, 37, 37, 0.10)",
-      }}
-      onClick={onClick}
-    >
-      prevsdfsaf
-    </button>
-  );
-}
 const data = [
   {
     name: "Abul Hasem",
@@ -101,8 +52,8 @@ const Carousel = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
@@ -153,4 +104,50 @@ const Carousel = () => {
   );
 };
 
+function NextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        right: "-5%",
+        top: "86%",
+        background: "#E6E6E6",
+        width: "30px",
+        height: "30px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "50%",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <button
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        left: "107%",
+        top: "86%",
+        background: "#E6E6E6",
+        width: "30px",
+        height: "30px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "50%",
+        boxShadow:
+          "0px 2px 4px -1px rgba(37, 37, 37, 0.06), 0px 4px 6px -1px rgba(37, 37, 37, 0.10)",
+      }}
+      onClick={onClick}
+    ></button>
+  );
+}
 export default Carousel;
