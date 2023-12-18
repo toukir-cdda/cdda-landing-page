@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from "../Accordion";
+import NewAccordion from "../Accordion/NewAccordion";
 import Image from "next/image";
 
 const OurInfo = () => {
@@ -10,7 +11,7 @@ const OurInfo = () => {
         <div className="flex lg:w-[532px] pr-6 flex-col items-start gap-4">
           <h2 className="title relative">
             What We do?
-            {/*hero title  underline  */}
+            {/*info title  underline  */}
             <Image
               className="info__title__underline absolute "
               src="/assets/line.svg"
@@ -59,6 +60,8 @@ const OurInfo = () => {
             },
           ]}
         />
+
+        {/* <NewAccordion /> */}
       </div>
     </div>
   );

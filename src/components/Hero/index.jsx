@@ -7,6 +7,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { BiSolidStoreAlt } from "react-icons/bi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { PiBriefcase } from "react-icons/pi";
+import SingleCarousel from "../Carousel/SingleCarousel";
+import SlideShow from "../Carousel/SlideShow";
 
 const getBadgePosition = (angle, radius) => {
   const centerX = 115; // Adjust as needed
@@ -84,43 +86,12 @@ const Hero = () => {
           </button>
         </div>
         {/* right side */}
-        <div className=" md:w-full lg:w-1/2 flex items-center justify-center">
+        <div className="single__carousal md:w-full lg:w-1/2 lg:px-16 xl:px-36">
           {/* carousal */}
-          <div className="relative">
-            <Image
-              className="h-[300px] w-[230px] md:h-[450px] md:w-[350px] lg:h-[450px] lg:w-[350px] rounded-lg shadow-md  "
-              src="/assets/img1.png"
-              alt=""
-              width={443}
-              height={540}
-            />
-            {/* badge 1  */}
-            <div
-              className="absolute bg-primary-light  flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md -left-16 md:-left-36 top-60"
-              // style={getBadgePosition(angle1 * (Math.PI / 180), 300)}
-            >
-              <BiSolidStoreAlt />
-              <span>commerce</span>
-            </div>
-            {/* badge 2  */}
-            <div
-              className="absolute bg-primary-light  flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md right-28 -top-10"
-              // style={getBadgePosition(angle2 * (Math.PI / 180), 300)}
-            >
-              <HiOutlineLightBulb />
-              <span>SaaS</span>
-            </div>
-            {/* badge 3  */}
-            <div
-              className="absolute bg-primary-light  flex items-center gap-[6px] py-1 px-3 rounded-3xl shadow-md -right-16 top-[296px]"
-              // style={getBadgePosition(angle3 * (Math.PI / 180), 300)}
-            >
-              <PiBriefcase />
-              <span>Job Board</span>
-            </div>
-          </div>
+          <SlideShow />
         </div>
       </div>
+
       {/* footer section nav */}
       <div className="hero-footer ">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">

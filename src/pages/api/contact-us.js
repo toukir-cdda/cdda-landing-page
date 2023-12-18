@@ -9,7 +9,7 @@ const pool = new Pool({
   port: 5432,
 });
 
-export async function POST(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
@@ -17,18 +17,18 @@ export async function POST(req, res) {
   const { name, email, phone, businessname, description } = req.body;
 
   // SAVE DATA TO POSTGRESQL
-  const client = await pool.connect();
-  try {
-    await client.query(
-      "INSERT INTO contacts (name, email, phone, businessname, description) VALUES ($1, $2, $3, $4, $5)",
-      [name, email, phone, businessname, description]
-    );
-  } catch (error) {
-    console.error("Error inserting data into PostgreSQL:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
-  } finally {
-    client.release();
-  }
+  //   const client = await pool.connect();
+  //   try {
+  //     await client.query(
+  //       "INSERT INTO contacts (name, email, phone, businessname, description) VALUES ($1, $2, $3, $4, $5)",
+  //       [name, email, phone, businessname, description]
+  //     );
+  //   } catch (error) {
+  //     console.error("Error inserting data into PostgreSQL:", error);
+  //     return res.status(500).json({ message: "Internal Server Error" });
+  //   } finally {
+  //     client.release();
+  //   }
 
   // SEND EMAIL
   const transporter = nodemailer.createTransport({
@@ -42,10 +42,10 @@ export async function POST(req, res) {
   });
 
   const mailOptions = {
-    from: "marufcdda319@gmail.com",
-    to: "yeasir@cdda.io",
-    subject: "Thank you for contacting us!",
-    text: "We have received your inquiry and will get back to you soon.",
+    // from: email,
+    to: "toukir@cdda.io",
+    subject: "CDDA Mail",
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nBusiness Name: ${businessname}\nDescription: ${description}`,
   };
 
   try {

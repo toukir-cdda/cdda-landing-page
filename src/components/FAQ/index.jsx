@@ -10,9 +10,9 @@ const FAQ = () => {
         <h3 className="uppertitle">Frequently Asked Questions</h3>
         <h1 className="title lg:mx-56 text-center relative">
           If you have anything else you want to ask, reach out to us.
-          {/* line  */}
+          {/*FAQ title  underline  */}
           <Image
-            className="w-64 text__underline absolute md:w-[350px] lg:w-[170px] xl:w-72 "
+            className="FAQ__title__underline absolute "
             src="/assets/line.svg"
             alt=""
             width={500}

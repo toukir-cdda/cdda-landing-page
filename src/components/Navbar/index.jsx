@@ -56,7 +56,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <button className="peer  transition flex lg:hidden justify-center items-center gap-1.5 rounded-full border  border-gray-600/50 p-2">
+          <button className="navbar-menuItem-1 peer  transition flex lg:hidden justify-center items-center gap-1.5 rounded-full border  border-gray-600/50 p-2">
             <span className="flex items-center   rounded-full text-">
               <GiHamburgerMenu />
             </span>

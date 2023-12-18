@@ -58,6 +58,7 @@ const Carousel = () => {
     slidesToScroll: 3,
     initialSlide: 0,
     // autoplay: true,
+    // centerMode: true,
     autoplaySpeed: 2000,
     speed: 1500,
     className: " pb-10",

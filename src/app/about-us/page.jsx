@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import Teams from "../../components/Teams";
 import { FaArrowRight } from "react-icons/fa";
 import AboutCard from "../../components/Card/AboutCard";
+import Image from "next/image";
 export default function AboutUs() {
   const aboutCardData = [
     {
@@ -57,8 +58,16 @@ export default function AboutUs() {
           <div className="flex justify-between flex-col md:flex-row md:gap-40 ">
             <div className="flex justify-center items-center md:lg:items-start text-center flex-col gap-2 flex-1">
               <h3 className="uppertitle text-left">About us</h3>
-              <h2 className="title md:text-left">
+              <h2 className="title md:text-left relative">
                 We’re built for software teams
+                {/*info title  underline  */}
+                {/* <Image
+                  className="product__title__underline absolute "
+                  src="/assets/line.svg"
+                  alt=""
+                  width={500}
+                  height={500}
+                /> */}
               </h2>
             </div>
             <div className="my-3 bg-light-blue flex items-center gap-2 px-3 py-4 self-stretch  border-l-[var(--primary-blue)]  border-l-4 flex-1">

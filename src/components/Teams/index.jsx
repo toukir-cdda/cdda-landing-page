@@ -76,9 +76,9 @@ const Teams = () => {
         <h3 className="uppertitle">Meet Our Teams</h3>
         <h1 className="title lg:px-40 text-center relative">
           Meet our team of Creators, Designers, and world-class Problem Solvers
-          {/* line  */}
+          {/*teams title  underline  */}
           <Image
-            className="w-64 text__underline absolute md:w-[350px] lg:w-[170px] xl:w-72 "
+            className="team__title__underline absolute "
             src="/assets/line.svg"
             alt=""
             width={500}
