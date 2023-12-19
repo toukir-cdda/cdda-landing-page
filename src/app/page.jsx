@@ -50,13 +50,13 @@ export default function Home() {
       </section>
 
       <section className="py-9 gradient-bg relative">
-        <Image
-          className="w-64  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden absolute lg:w-[170px] xl:w-64 lg:block "
+        {/* <Image
+          className="w-52  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden absolute lg:w-[130px] xl:w-52 lg:block "
           src="/assets/downCArrow.png"
           alt=""
           width={500}
           height={500}
-        />
+        /> */}
         <OurProduct />
       </section>
 

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import ProductCard from "../Card/ProductCard";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
+import ContinuousSlider from "../Carousel/ContinuousSlider";
 
 const OurProduct = () => {
   // useEffect(() => {
@@ -42,18 +43,8 @@ const OurProduct = () => {
       </div>
       {/* righ side */}
       {/* flex gap-3 flex-wrap */}
-      <div className="w-full lg:w-1/2 ">
-        {/* product card */}
-        <ProductCard />
-        {/* <div class="logos">
-          <div class="logos-slide ">
-            {[11, 1, 1, 1, 2].map((item) => (
-              <div className="w-20 h-16 bg-red-500" key={item}>
-                <ProductCard />
-              </div>
-            ))}
-          </div>
-        </div> */}
+      <div className="w-full lg:w-2/3">
+        <ContinuousSlider />
       </div>
     </div>
   );
