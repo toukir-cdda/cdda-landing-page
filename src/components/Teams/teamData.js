@@ -95,4 +95,12 @@ export const teamData = [
     instgram: "",
     twitter: "",
   },
+  {
+    name: "Toukir Raju",
+    position: "SENIOUR SOFTWARE ENGINEER",
+    img: "/assets/person.png",
+    facebook: "",
+    instgram: "",
+    twitter: "",
+  },
 ];

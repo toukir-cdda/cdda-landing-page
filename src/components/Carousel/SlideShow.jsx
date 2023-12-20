@@ -2,20 +2,9 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-const Slideshow = () => {
+const Slideshow = ({ data }) => {
   const [slideIndex, setSlideIndex] = useState(1);
-  let data = [
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-    "/assets/person.png",
-  ];
+
   const currentSlide = (n) => {
     setSlideIndex(n);
   };
@@ -37,8 +26,8 @@ const Slideshow = () => {
     for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
     }
-    if (data.length > 0) {
-      if (data.length > 1) {
+    if (data?.length > 0) {
+      if (data?.length > 1) {
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
       } else {
@@ -69,8 +58,8 @@ const Slideshow = () => {
   return (
     <div>
       <div className="slideshow-container ">
-        {data.map((item) => (
-          <div className="mySlides fade " key={item}>
+        {data?.map((item, index) => (
+          <div className="mySlides fade " key={index}>
             <Image
               src={item}
               width={1000}
@@ -83,18 +72,18 @@ const Slideshow = () => {
         ))}
       </div>
       <div>
-        {data.length === 1 && (
+        {data?.length === 1 && (
           <div style={{ textAlign: "center" }} className="pt-4">
             <button className="dot" onClick={() => currentSlide(1)}></button>
           </div>
         )}
-        {data.length === 2 && (
+        {data?.length === 2 && (
           <div style={{ textAlign: "center" }} className="pt-4">
             <button className="dot" onClick={() => currentSlide(1)}></button>
             <button className="dot" onClick={() => currentSlide(2)}></button>
           </div>
         )}
-        {data.length > 2 && (
+        {data?.length > 2 && (
           <div style={{ textAlign: "center" }} className="pt-4">
             <button className="dot" onClick={() => currentSlide(1)}></button>
             <button className="dot" onClick={() => currentSlide(2)}></button>

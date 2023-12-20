@@ -85,7 +85,7 @@ export default function Home() {
       <section className="gradient-bg relative">
         {/* teams  */}
         <Teams />
-        {/* <div className="absolute bottom-0 w-full h-28 flex justify-center items-center bg-gradient-to-b from-transparent via-blue-0 to-white rounded-b-md">
+        <div className="absolute bottom-0 w-full h-28 flex justify-center items-center bg-gradient-to-b from-transparent via-blue-0 to-white rounded-b-md">
           <button
             className="primary-btn hover:bg-[#2ab5df]"
             onClick={() => route.push("/about-us/#teams")}
@@ -93,7 +93,7 @@ export default function Home() {
             <span>See all Member</span>
             <FaArrowRight />
           </button>
-        </div> */}
+        </div>
       </section>
 
       <section className="">

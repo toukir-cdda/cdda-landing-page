@@ -7,8 +7,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { BiSolidStoreAlt } from "react-icons/bi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { PiBriefcase } from "react-icons/pi";
-import SingleCarousel from "../Carousel/SingleCarousel";
 import SlideShow from "../Carousel/SlideShow";
+import { heroData } from "./heroData";
 
 const getBadgePosition = (angle, radius) => {
   const centerX = 115; // Adjust as needed
@@ -74,7 +74,7 @@ const Hero = () => {
             />
           </p>
           {/* hero sut-title  */}
-          <div className="bg-light-blue flex items-center gap-2 px-3 py-4 self-stretch  border-l-[var(--primary-blue)]  border-l-4 ">
+          <div className="bg-gradient-to-r from-[#e6f3fd] to-transparent flex items-center gap-2 px-3 py-4 self-stretch  border-l-[var(--primary-blue)]  border-l-4 ">
             <p className="text-xs md:text-base lg:text-xl font-normal leading-4 md:leading-5 lg:leading-7 text-[#666]">
               We are trusted partners for realizing digital-at-the-core success
               strategies for businesses across the world and across industries.
@@ -88,7 +88,7 @@ const Hero = () => {
         {/* right side */}
         <div className="single__carousal md:w-full lg:w-1/2 lg:px-16 xl:px-36">
           {/* carousal */}
-          <SlideShow />
+          <SlideShow data={heroData} />
         </div>
       </div>
 

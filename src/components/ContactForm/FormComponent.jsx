@@ -10,7 +10,7 @@ const FormComponent = () => {
   // name, email, phone, businessname, description
   const [phoneNumber, setPhoneNumber] = useState();
   const [aggree, setAggree] = useState(false);
-  const [value, setValue] = useState();
+  const [error, setError] = useState("");
   const [formValue, setFormValue] = useState({
     firstName: "",
     lastName: "",
@@ -32,33 +32,46 @@ const FormComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      JSON.stringify({
-        name: formValue.firstName + " " + formValue.lastName,
-        email: formValue.email,
-        phone: formValue.phoneNumber,
-        businessname: formValue.company,
-        description: formValue.message,
-      })
-    );
-    const submitedData = {
-      name: formValue.firstName + " " + formValue.lastName,
-      email: formValue.email,
-      phone: formValue.phoneNumber,
-      businessname: formValue.company,
-      description: formValue.message,
-    };
-    fetch("/api/contact-us", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(submitedData),
-    });
+
+    if (formValue.phoneNumber && isValidPhoneNumber(formValue.phoneNumber)) {
+      setError("");
+      console.log(
+        JSON.stringify({
+          name: formValue.firstName + " " + formValue.lastName,
+          email: formValue.email,
+          phone: formValue.phoneNumber,
+          businessname: formValue.company,
+          description: formValue.message,
+        })
+      );
+    } else {
+      setError("Invalid phone number");
+    }
+
+    // console.log("phone", isValidPhoneNumber(phoneNumber));
+    // const submitedData = {
+    //   name: formValue.firstName + " " + formValue.lastName,
+    //   email: formValue.email,
+    //   phone: formValue.phoneNumber,
+    //   businessname: formValue.company,
+    //   description: formValue.message,
+    // };
+    // fetch("/api/contact-us", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(submitedData),
+    // });
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center gap-4">
+      {error && (
+        <div className="bg-red-50 w-full rounded-md px-4 py-2 text-[#d92c20dc] text-sm font-medium">
+          {error}
+        </div>
+      )}
       <form className="pb-3.5 flex flex-col gap-3" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
@@ -100,36 +113,16 @@ const FormComponent = () => {
           <div className="relatived">
             <CustomeLabel name={"Phone Number"} />
             <div className="flex">
-              {/* <select
-                className="  border rounded-l-lg text-[#333] px-3.5 bg-[#F2F2F2]"
-                name="country"
-                value={formValue.country}
-                onChange={handleChange}
-                required
-              >
-                <option>US</option>
-                <option>India</option>
-                <option>India</option>
-                <option>India</option>
-              </select>
-              <input
-                className=" relative border border-[#E6E6E6] rounded-r-lg block text-gray-700/80 placeholder:placeholder-[#999] placeholder-xs  w-full   focus:outline-none py-2.5 px-4"
-                placeholder="+1 (555) 000-0000"
-                type="tel"
-                name="phoneNumber"
-                value={formValue.phoneNumber}
-                onChange={handleChange}
-                required
-              /> */}
-
-              <PhoneInput
-                international
-                countryCallingCodeEditable={false}
-                defaultCountry="BD"
-                value={phoneNumber}
-                onChange={setPhoneNumber}
-                className=" relative border border-[#E6E6E6] rounded-lg block text-gray-700/80 placeholder:placeholder-[#999] placeholder-xs  w-full outline-none  focus:outline-none py-2.5 px-4"
-              />
+              <div className=" relative border border-[#E6E6E6] rounded-lg block text-gray-700/80 placeholder:placeholder-[#999] placeholder-xs  w-full outline-none  focus:outline-none py-2.5 px-4">
+                <PhoneInput
+                  international
+                  countryCallingCodeEditable={false}
+                  // defaultCountry="BD"
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
+                  placeholder="Enter phone number"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -160,25 +153,23 @@ const FormComponent = () => {
             required
           />
         </div>
-        <div className="form-control">
-          <label className="cursor-pointer flex items-center gap-2">
-            <input
-              type="checkbox"
-              className=""
-              value={aggree}
-              onChange={() => setAggree(!aggree)}
-              required
-              // checked={aggree}
-            />
-            {/* <span class="checkbox-custom relative h-4 w-4 border border-gray-400 rounded-md bg-white flex items-center justify-center ml-2 checked:bg-primary">
-                    <span class="checkmark h-2 w-2 bg-primary rounded-full"></span>
-                  </span> */}
+        <div className="form-control flex items-center gap-2">
+          <input
+            type="checkbox"
+            className="cursor-pointer "
+            value={aggree}
+            onChange={() => setAggree(!aggree)}
+            required
+
+            // checked={aggree}
+          />
+          <label className="">
             <p className="  m-0 p-0 font-medium  ">
               <span className="text-[#1A1A1A] text-sm lg:text-[16px] ">
                 I’d like to receive more information about company, I understand
                 and agree to the
               </span>
-              <span className="text-[#2AA7DF] text-sm lg:text-[16px]  ">
+              <span className="text-[#2AA7DF] text-sm lg:text-[14px] underline cursor-pointer ">
                 {" "}
                 Privacy Policy
               </span>

@@ -16,7 +16,7 @@ const data = [
   {
     name: "maruf hassan",
     position: "FRONTEND TEAM LEADER",
-    img: "/assets/person.png",
+    img: "/assets/teams/Apu.png",
     facebook: "",
     instgram: "",
     twitter: "",
@@ -24,7 +24,7 @@ const data = [
   {
     name: "iMRAN HOSSAIN",
     position: "BACKEND TEAM LEADER",
-    img: "/assets/person.png",
+    img: "/assets/teams/Eshak.png",
     facebook: "",
     instgram: "",
     twitter: "",
@@ -32,7 +32,7 @@ const data = [
   {
     name: "MIZANUR RAHMAN",
     position: "SENIOUR SOFTWARE ENGINEER",
-    img: "/assets/person.png",
+    img: "/assets/teams/Lijon.png",
     facebook: "",
     instgram: "",
     twitter: "",
@@ -52,8 +52,8 @@ const Carousel = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <PrevArrow />,
+    prevArrow: <NextArrow />,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,

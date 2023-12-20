@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "../Carousel";
 import Card from "../Card";
 import Image from "next/image";
 import { teamData } from "./teamData";
 import TeamHeading from "./TeamHeading";
+import { useRouter, usePathname } from "next/navigation";
 
 const Teams = () => {
+  const pathName = usePathname();
   const [visibleCards, setVisibleCards] = useState(4);
 
-  const handleShowMore = () => {
-    setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
-  };
+  // const handleShowMore = () => {
+  //   setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
+  // };
 
-  const handleShowLess = () => {
-    setVisibleCards((prevVisibleCards) =>
-      prevVisibleCards > 4 ? 4 : prevVisibleCards
-    );
-  };
+  // const handleShowLess = () => {
+  //   setVisibleCards((prevVisibleCards) =>
+  //     prevVisibleCards > 4 ? 4 : prevVisibleCards
+  //   );
+  // };
+  useEffect(() => {
+    if (pathName === "/") {
+      setVisibleCards(4);
+    } else {
+      setVisibleCards(teamData.length);
+    }
+  }, [pathName]);
   return (
     <div>
       <div className="container mx-auto px-4">
@@ -60,8 +69,8 @@ const Teams = () => {
         <div
           className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 overflow-hidden  `}
         >
-          {teamData.slice(0, visibleCards).map((member, index) => (
-            <Card item={member} key={index} />
+          {teamData.slice(0, visibleCards).map((cardItem, index) => (
+            <Card item={cardItem} key={index} />
           ))}
 
           {/* <div>
@@ -78,30 +87,6 @@ const Teams = () => {
           <Card item={item} key={index} />
         ))} */}
         </div>
-      </div>
-      <div className="absolute bottom-0 w-full h-28 flex justify-center items-center gap-4 bg-gradient-to-b from-transparent via-blue-0 to-white rounded-b-md">
-        {visibleCards > 4 && (
-          // <button onClick={handleShowMore}>Show More</button>
-          <button
-            className="primary-btn hover:bg-[#2ab5df]"
-            onClick={handleShowLess}
-          >
-            <span>Show Less</span>
-            {/* <FaArrowRight /> */}
-          </button>
-        )}
-
-        {teamData.length > visibleCards && (
-          // <button onClick={handleShowMore}>Show More</button>
-          <button
-            className="primary-btn hover:bg-[#2ab5df]"
-            onClick={handleShowMore}
-            // onClick={() => route.push("/about-us/#teams")}
-          >
-            <span>Show More</span>
-            {/* <FaArrowRight /> */}
-          </button>
-        )}
       </div>
     </div>
   );
